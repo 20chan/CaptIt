@@ -9,3 +9,6 @@ D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.pdb
 D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.MainForm.resources
 D:\C#\CaptIt\CaptIt\bin\Debug\Capture.dll
 D:\C#\CaptIt\CaptIt\bin\Debug\Capture.pdb
+D:\C#\CaptIt\CaptIt\bin\Debug\Hook.dll
+D:\C#\CaptIt\CaptIt\bin\Debug\Hook.pdb
+D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.DragForm.resources
