@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Drawing.Imaging;
+using System.Reflection;
+using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CaptIt
@@ -12,22 +14,15 @@ namespace CaptIt
         public string AutoSavePath { get; set; }
         public ImageFormat ImageFormat { get; set; }
 
+        public Keys FullScreenShotKey { get; set; }
+        public Keys DragScreenShotKey { get; set; }
+        public Keys WindowScreenShotKey { get; set; }
+
         public Settings()
         {
 
         }
-
-        public void SetStartup(bool enabled)
-        {
-            Microsoft.Win32.RegistryKey rkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey
-                        ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-
-            if (enabled)
-                rkey.SetValue("CaptIt", System.Windows.Forms.Application.ExecutablePath.ToString());
-            else
-                rkey.DeleteValue("CaptIt", false);
-        }
-
+        
         public void Save(string path)
         {
             using (FileStream fs = new FileStream(path, FileMode.Create))
@@ -52,8 +47,25 @@ namespace CaptIt
             {
                 isSaveAuto = true,
                 AutoSavePath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
-                ImageFormat = ImageFormat.Png
+                ImageFormat = ImageFormat.Png,
+
+                FullScreenShotKey = Keys.PrintScreen,
+                DragScreenShotKey = Keys.PrintScreen | Keys.Shift,
+                WindowScreenShotKey = Keys.PrintScreen | Keys.Control
             };
+        }
+
+        public static void SetStartup(bool enabled)
+        {
+            Microsoft.Win32.RegistryKey rkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey
+                        ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+            if (enabled)
+                rkey.SetValue("CaptIt", "\"" + Assembly.GetEntryAssembly().Location + "\"");
+            else
+                rkey.DeleteValue("CaptIt", false);
+
+            rkey.Close();
         }
     }
 }

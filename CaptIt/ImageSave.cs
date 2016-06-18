@@ -16,6 +16,7 @@ namespace CaptIt
         private static string NameFormat(string name)
         {
             string result = name;
+            //날짜 및 시간
             result = result.Replace("{yyyy}", DateTime.Now.ToString("yyyy"));
             result = result.Replace("{MM}", DateTime.Now.ToString("MM"));
             result = result.Replace("{dd}", DateTime.Now.ToString("dd"));
@@ -24,6 +25,8 @@ namespace CaptIt
             result = result.Replace("{HH}", DateTime.Now.ToString("HH"));
             result = result.Replace("{mm}", DateTime.Now.ToString("mm"));
             result = result.Replace("{ss}", DateTime.Now.ToString("ss"));
+
+
             return result;
         }
     }

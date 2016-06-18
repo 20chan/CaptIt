@@ -6,22 +6,26 @@ namespace CaptIt
 {
     public partial class MainForm : Form
     {
+        public static MainForm Main;
+        public Settings _settings;
         public MainForm()
         {
             InitializeComponent();
+            Main = this;
+            _settings = Settings.Default();
         }
 
-        private void CaptureFullScreenShot()
+        public void CaptureFullScreenShot()
         {
             Captured(ScreenShot.FullScreenShot());
         }
 
-        private void CaptureDragScreenShot()
+        public void CaptureDragScreenShot()
         {
             Captured(ScreenShot.DragScreenShot());
         }
 
-        private void CaptureWindowScreenShot()
+        public void CaptureWindowScreenShot()
         {
             Captured(ScreenShot.WindowHandleScreenShot());
         }
@@ -50,6 +54,11 @@ namespace CaptIt
         private void 윈도우WToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CaptureWindowScreenShot();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.SetStartup(checkBox1.Checked);
         }
     }
 }

@@ -36,6 +36,7 @@
             this.전체화면FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.드래그영역DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.윈도우WToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.cmsCapture.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@
             this.드래그영역DToolStripMenuItem,
             this.윈도우WToolStripMenuItem});
             this.캡쳐CToolStripMenuItem.Name = "캡쳐CToolStripMenuItem";
-            this.캡쳐CToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.캡쳐CToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.캡쳐CToolStripMenuItem.Text = "캡쳐(&C)";
             // 
             // 전체화면FToolStripMenuItem
@@ -84,16 +85,29 @@
             this.윈도우WToolStripMenuItem.Text = "윈도우(&W)";
             this.윈도우WToolStripMenuItem.Click += new System.EventHandler(this.윈도우WToolStripMenuItem_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(52, 14);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(100, 16);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "시작 프로그램";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(224, 42);
+            this.Controls.Add(this.checkBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Form1";
             this.cmsCapture.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -105,6 +119,7 @@
         private System.Windows.Forms.ToolStripMenuItem 전체화면FToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 드래그영역DToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 윈도우WToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
