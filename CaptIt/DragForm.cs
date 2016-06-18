@@ -10,17 +10,13 @@ namespace CaptIt
     public partial class DragForm : Form
     {
         static bool isAlreadyDragging = false;
-        ManualResetEvent waitUntilDrag = new ManualResetEvent(false);
-
-        Rectangle result;
+        public ManualResetEvent WaitUntilDrag = new ManualResetEvent(false);
+        public Rectangle result;
         public DragForm()
         {
             InitializeComponent();
 
             this.Size = CaptureLib.FullScreensSize();
-            this.BackgroundImage = CaptureLib.CaptureScreen();
-            backPanel = new Bitmap(Width, Height);
-            _pen = new Pen(Color.Red, 1f);
         }
 
         bool isDown = false;
@@ -39,34 +35,28 @@ namespace CaptIt
             }
         }
 
-        Pen _pen;
-        Bitmap backPanel;
         private void DragForm_MouseMove(object sender, MouseEventArgs e)
         {
-            Task.Factory.StartNew(() =>
+            try
             {
-                using (Graphics g = Graphics.FromImage(backPanel))
+                if (isDown)
                 {
-                    g.DrawImage(BackgroundImage, 0, 0);
-                    if (isDown)
-                    {
-                        g.DrawLine(_pen, firstPoint.X, firstPoint.Y, e.X, firstPoint.Y);
-                        g.DrawLine(_pen, firstPoint.X, firstPoint.Y, firstPoint.X, e.Y);
-                        g.DrawLine(_pen, firstPoint.X, e.Y, e.X, e.Y);
-                        g.DrawLine(_pen, e.X, firstPoint.Y, e.X, e.Y);
-                    }
-                    else
-                    {
-                        g.DrawLine(_pen, e.X, 0, e.X, Height);
-                        g.DrawLine(_pen, 0, e.Y, Width, e.Y);
-                    }
-                }
+                    int x, y, width, height;
 
-                this.Invoke(new Action(() =>
-                {
-                    this.CreateGraphics().DrawImage(backPanel, 0, 0); 
-                }));
-            });
+                    x = Math.Min(firstPoint.X, e.X);
+                    y = Math.Min(firstPoint.Y, e.Y);
+                    width = Math.Max(firstPoint.X, e.X) - x;
+                    height = Math.Max(firstPoint.Y, e.Y) - y;
+
+                    this.panel1.Location = new Point(x + 1, y + 1);
+                    this.panel1.Size = new Size(width + 1, height + 1);
+
+                    Graphics g = this.CreateGraphics();
+                    g.DrawRectangle(Pens.Red, x, y, width, height);
+                }
+            }
+            catch
+            { }
         }
 
         private void DragForm_MouseUp(object sender, MouseEventArgs e)
@@ -86,7 +76,7 @@ namespace CaptIt
             height = Math.Max(firstPoint.Y, e.Y) - y;
             result = new Rectangle(x, y, width, height);
             isDone = true;
-            waitUntilDrag.Set();
+            WaitUntilDrag.Set();
         }
 
         private void DragForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -101,35 +91,35 @@ namespace CaptIt
         {
             result = Rectangle.Empty;
             isDone = true;
-            waitUntilDrag.Set();
+            WaitUntilDrag.Set();
         }
 
-        private static void ShowDragForm(object f)
+        private static void ShowBackDragForm(object f)
         {
-            ((DragForm)f).ShowDialog();
+            ((BackDragForm)f).ShowDialog();
         }
 
         /// <summary>
         /// 드래그 폼을 띄우고, 그 드래그 값을 리턴.
         /// </summary>
         /// <returns>텅 빈 사각형이면 Rectangle.Empty 를 리턴.</returns>
-        public static Rectangle DragScreen()
+        public static Rectangle DragScreen(Image fullScreenShot)
         {
             CheckForIllegalCrossThreadCalls = false;
             if (isAlreadyDragging) return Rectangle.Empty;
             isAlreadyDragging = true;
 
-            DragForm form = new DragForm();
-            Thread t = new Thread(new ParameterizedThreadStart(ShowDragForm));
+            BackDragForm form = new BackDragForm(fullScreenShot);
+            Thread t = new Thread(new ParameterizedThreadStart(ShowBackDragForm));
             t.Start(form);
-            form.waitUntilDrag.WaitOne();
-            form.waitUntilDrag.Reset();
+            form.WaitUntilDrag.WaitOne();
+            form.WaitUntilDrag.Reset();
 
-            Rectangle rect = form.result;
+            Rectangle rect = form.Result;
 
             form.Close();
-            form.backPanel.Dispose();
-            form.BackgroundImage.Dispose(); //요놈 잡느라고 30분 걸렸다!! ㅠㅠ
+            //바뀌었다. 원래는 Dispose를 했어야 하지만, 이제는 ScreenShot 클래스에서 사용하기 때문에 그대로 내보낸다.
+            //form.BackgroundImage.Dispose(); //요놈 잡느라고 30분 걸렸다!! ㅠㅠ
             form.Dispose();
             isAlreadyDragging = false;
             return rect;
