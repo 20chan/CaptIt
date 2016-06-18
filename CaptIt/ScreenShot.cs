@@ -28,6 +28,8 @@ namespace CaptIt
         public static Image WindowHandleScreenShot()
         {
             IntPtr handle = HandleForm.GetWindowHandle();
+            if (handle == IntPtr.Zero)
+                return null;
             return CaptureLib.CaptureWindow(handle);
         }
     }
