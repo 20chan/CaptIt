@@ -18,6 +18,7 @@ namespace CaptIt
         public static Image DragScreenShot()
         {
             Rectangle rect = DragForm.DragScreen();
+            if (rect == Rectangle.Empty) return null;
             return CaptureLib.CaptureScreen(rect);
         }
 

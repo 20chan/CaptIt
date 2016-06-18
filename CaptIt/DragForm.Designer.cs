@@ -41,12 +41,13 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DragForm";
-            this.Opacity = 0.05D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "DragForm";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DragForm_FormClosing);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DragForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DragForm_MouseUp);
             this.ResumeLayout(false);
 
