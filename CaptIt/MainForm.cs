@@ -32,6 +32,9 @@ namespace CaptIt
             //띠링~ 하는 사운드 실행
             //자동 저장
             //이미지 편집기를 띄움
+
+            image.Dispose();
+            GC.Collect();
         }
 
         private void 전체화면FToolStripMenuItem_Click(object sender, EventArgs e)

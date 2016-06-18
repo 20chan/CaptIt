@@ -14,7 +14,7 @@ namespace CaptIt
     public partial class DragForm : Form
     {
         static bool isAlreadyDragging = false;
-        static ManualResetEvent waitUntilDrag = new ManualResetEvent(false);
+        ManualResetEvent waitUntilDrag = new ManualResetEvent(false);
 
         Rectangle result;
         public DragForm()
@@ -68,14 +68,14 @@ namespace CaptIt
             DragForm form = new DragForm();
             Thread t = new Thread(new ParameterizedThreadStart(ShowDragForm));
             t.Start(form);
-            waitUntilDrag.WaitOne();
-            waitUntilDrag.Reset();
+            form.waitUntilDrag.WaitOne();
+            form.waitUntilDrag.Reset();
 
             Rectangle rect = form.result;
             form.Close();
+            form.BackgroundImage.Dispose();
             form.Dispose();
             isAlreadyDragging = false;
-
             return rect;
         }
     }
