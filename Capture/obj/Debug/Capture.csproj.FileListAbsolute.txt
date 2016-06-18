@@ -1,0 +1,5 @@
+D:\C#\CaptIt\Capture\bin\Debug\Capture.dll
+D:\C#\CaptIt\Capture\bin\Debug\Capture.pdb
+D:\C#\CaptIt\Capture\obj\Debug\Capture.csprojResolveAssemblyReference.cache
+D:\C#\CaptIt\Capture\obj\Debug\Capture.dll
+D:\C#\CaptIt\Capture\obj\Debug\Capture.pdb

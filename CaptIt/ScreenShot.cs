@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using Capture;
 
 namespace CaptIt
 {
@@ -11,17 +12,19 @@ namespace CaptIt
     {
         public static Image FullScreenShot()
         {
-            throw new NotImplementedException();
+            return CaptureLib.CaptureScreen();
         }
 
         public static Image DragScreenShot()
         {
-            throw new NotImplementedException();
+            Rectangle rect = DragForm.DragScreen();
+            return CaptureLib.CaptureScreen(rect);
         }
 
         public static Image WindowHandleScreenShot()
         {
-            throw new NotImplementedException();
+            IntPtr handle = HandleForm.GetWindowHandle();
+            return CaptureLib.CaptureWindow(handle);
         }
     }
 }

@@ -7,3 +7,5 @@ D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.csproj.GenerateResource.Cache
 D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.exe
 D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.pdb
 D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.MainForm.resources
+D:\C#\CaptIt\CaptIt\bin\Debug\Capture.dll
+D:\C#\CaptIt\CaptIt\bin\Debug\Capture.pdb
