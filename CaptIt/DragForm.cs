@@ -52,6 +52,7 @@ namespace CaptIt
                     this.panel1.Size = new Size(width + 1, height + 1);
 
                     Graphics g = this.CreateGraphics();
+                    g.Clear(BackColor);
                     g.DrawRectangle(Pens.Red, x, y, width, height);
                 }
             }

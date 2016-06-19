@@ -11,6 +11,13 @@ namespace CaptIt
             _hook = new KeyboardHook();
             _hook.KeyDown += _hook_KeyDown;
             _hook.KeyUp += _hook_KeyUp;
+
+            _hook.HookStart();
+        }
+
+        ~HotKeyManager()
+        {
+            _hook.HookEnd();
         }
 
         private bool _hook_KeyDown(Keys arg)

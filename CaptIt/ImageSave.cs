@@ -9,11 +9,11 @@ namespace CaptIt
     {
         public static void SaveImage(Image img, string directory, string nameFormat, ImageFormat format)
         {
-            string name = NameFormat(nameFormat);
+            string name = NameFormat(directory, nameFormat);
             img.Save(directory + name, format);
         }
 
-        private static string NameFormat(string name)
+        private static string NameFormat(string directory, string name)
         {
             string result = name;
             //날짜 및 시간
@@ -26,6 +26,22 @@ namespace CaptIt
             result = result.Replace("{mm}", DateTime.Now.ToString("mm"));
             result = result.Replace("{ss}", DateTime.Now.ToString("ss"));
 
+            if (result.Contains("{c}"))
+            {
+                string[] split = result.Split(new string[] { "{c}" }, StringSplitOptions.None);
+                string head = split[0];
+                string tail = split[1];
+                int i = 1;
+                for (; ; i++)
+                {
+                    if (!File.Exists(directory + head + i.ToString() + tail))
+                    {
+                        break;
+                    }
+                }
+
+                result = head + i.ToString() + tail;
+            }
 
             return result;
         }
