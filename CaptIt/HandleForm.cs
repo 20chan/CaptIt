@@ -136,6 +136,7 @@ namespace CaptIt
         }
         public ManualResetEvent WaitUntilDrag = new ManualResetEvent(false);
         bool isDown = false;
+        bool isDone = false;
         IntPtr LastWindow;
         IntPtr FoundWindow;
         
@@ -221,7 +222,7 @@ namespace CaptIt
         {
             if (isDown)
             {
-                IntPtr FoundWindow = ChildWindowFromPoint(Cursor.Position);
+                FoundWindow = ChildWindowFromPoint(Cursor.Position);
 
                 if (Control.FromHandle(FoundWindow) == null)
                 {
@@ -241,8 +242,18 @@ namespace CaptIt
 
             if(LastWindow != IntPtr.Zero)
             {
+                isDone = true;
                 WaitUntilDrag.Set();
                 ShowInvertRectTracker(LastWindow);
+            }
+        }
+
+        private void HandleForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isDone)
+            {
+                LastWindow = IntPtr.Zero;
+                WaitUntilDrag.Set();
             }
         }
 
@@ -265,11 +276,9 @@ namespace CaptIt
             t.Start(form);
             form.WaitUntilDrag.WaitOne();
             form.WaitUntilDrag.Reset();
-
             form.Close();
             isAlreadyHandling = false;
             return form.LastWindow;
         }
-
     }
 }

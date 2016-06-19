@@ -56,6 +56,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "윈도우";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HandleForm_FormClosing);
             this.ResumeLayout(false);
 
         }
