@@ -14,3 +14,4 @@ D:\C#\CaptIt\CaptIt\bin\Debug\Hook.pdb
 D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.DragForm.resources
 D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.BackDragForm.resources
 D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.camsound.resources
+D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.HandleForm.resources

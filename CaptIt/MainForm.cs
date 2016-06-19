@@ -38,6 +38,7 @@ namespace CaptIt
             if (image == null) return;
 
             (new System.Media.SoundPlayer(camsound.camera1)).Play();
+
             string format = "{yyyy}{MM}{dd}-{HH}{mm}{ss}.png";
             format = "Image {c}.png";
             ImageSave.SaveImage(image, "D:\\", format, System.Drawing.Imaging.ImageFormat.Png);

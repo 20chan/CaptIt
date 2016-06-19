@@ -102,6 +102,9 @@
     <EmbeddedResource Include="DragForm.resx">
       <DependentUpon>DragForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HandleForm.resx">
+      <DependentUpon>HandleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
