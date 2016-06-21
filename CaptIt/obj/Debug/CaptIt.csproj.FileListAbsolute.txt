@@ -15,3 +15,8 @@ D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.DragForm.resources
 D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.BackDragForm.resources
 D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.camsound.resources
 D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.HandleForm.resources
+D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.SettingForm.resources
+D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.SettingPanels.GeneralSetting.resources
+D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.SettingPanels.AutosaveSetting.resources
+D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.SettingPanels.CaptureSetting.resources
+D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.SettingPanels.ShortcutSetting.resources

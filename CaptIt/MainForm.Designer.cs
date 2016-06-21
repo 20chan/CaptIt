@@ -36,7 +36,8 @@
             this.전체화면FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.드래그영역DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.윈도우WToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.종료ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.설정SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsCapture.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,9 +51,11 @@
             // cmsCapture
             // 
             this.cmsCapture.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.캡쳐CToolStripMenuItem});
+            this.캡쳐CToolStripMenuItem,
+            this.설정SToolStripMenuItem,
+            this.종료ToolStripMenuItem});
             this.cmsCapture.Name = "contextMenuStrip1";
-            this.cmsCapture.Size = new System.Drawing.Size(115, 26);
+            this.cmsCapture.Size = new System.Drawing.Size(153, 92);
             // 
             // 캡쳐CToolStripMenuItem
             // 
@@ -61,7 +64,7 @@
             this.드래그영역DToolStripMenuItem,
             this.윈도우WToolStripMenuItem});
             this.캡쳐CToolStripMenuItem.Name = "캡쳐CToolStripMenuItem";
-            this.캡쳐CToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.캡쳐CToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.캡쳐CToolStripMenuItem.Text = "캡쳐(&C)";
             // 
             // 전체화면FToolStripMenuItem
@@ -85,29 +88,32 @@
             this.윈도우WToolStripMenuItem.Text = "윈도우(&W)";
             this.윈도우WToolStripMenuItem.Click += new System.EventHandler(this.윈도우WToolStripMenuItem_Click);
             // 
-            // checkBox1
+            // 종료ToolStripMenuItem
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(52, 14);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(100, 16);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "시작 프로그램";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.종료ToolStripMenuItem.Name = "종료ToolStripMenuItem";
+            this.종료ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.종료ToolStripMenuItem.Text = "종료(&X)";
+            this.종료ToolStripMenuItem.Click += new System.EventHandler(this.종료ToolStripMenuItem_Click);
+            // 
+            // 설정SToolStripMenuItem
+            // 
+            this.설정SToolStripMenuItem.Name = "설정SToolStripMenuItem";
+            this.설정SToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.설정SToolStripMenuItem.Text = "설정(&S)";
+            this.설정SToolStripMenuItem.Click += new System.EventHandler(this.설정SToolStripMenuItem_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(224, 42);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(179, 47);
+            this.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.cmsCapture.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -119,7 +125,8 @@
         private System.Windows.Forms.ToolStripMenuItem 전체화면FToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 드래그영역DToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 윈도우WToolStripMenuItem;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ToolStripMenuItem 종료ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 설정SToolStripMenuItem;
     }
 }
 

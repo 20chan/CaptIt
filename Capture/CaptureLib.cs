@@ -67,7 +67,6 @@ namespace Capture
             Bitmap bmp = new Bitmap(sz.Width, sz.Height);
             Graphics g = Graphics.FromImage(bmp);
             g.CopyFromScreen(0, 0, 0, 0, sz);
-
             return bmp;
         }
 

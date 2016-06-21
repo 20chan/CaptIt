@@ -15,6 +15,20 @@ namespace CaptIt
             Main = this;
             _settings = Settings.Default();
             _hotkey = new HotKeyManager();
+
+            HideBeforeShow();
+        }
+
+        private void HideBeforeShow()
+        {
+            this.Opacity = 0;
+            this.ShowInTaskbar = false;
+        }
+
+        private void CancelHiding()
+        {
+            this.Opacity = 1;
+            this.ShowInTaskbar = true;
         }
 
         public void CaptureFullScreenShot()
@@ -31,7 +45,7 @@ namespace CaptIt
         {
             Captured(ScreenShot.WindowHandleScreenShot());
         }
-
+        
         private void Captured(Image image)
         {
             GC.Collect();
@@ -40,9 +54,8 @@ namespace CaptIt
             (new System.Media.SoundPlayer(camsound.camera1)).Play();
 
             string format = "{yyyy}{MM}{dd}-{HH}{mm}{ss}.png";
-            format = "Image {c}.png";
+            format = "이미지 {c}.png";
             ImageSave.SaveImage(image, "D:\\", format, System.Drawing.Imaging.ImageFormat.Png);
-            //띠링~ 하는 사운드 실행
             //자동 저장
             //이미지 편집기를 띄움
             image.Dispose();
@@ -63,9 +76,15 @@ namespace CaptIt
             CaptureWindowScreenShot();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void 종료ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Settings.SetStartup(checkBox1.Checked);
+            Application.Exit();
+        }
+
+        private void 설정SToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingForm sf = new SettingForm(_settings);
+            sf.Show();
         }
     }
 }

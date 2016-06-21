@@ -61,6 +61,7 @@
     <Compile Include="BackDragForm.Designer.cs">
       <DependentUpon>BackDragForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClipboardType.cs" />
     <Compile Include="DragForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +96,33 @@
     <Compile Include="SettingForm.Designer.cs">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingPanels\AutosaveSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingPanels\AutosaveSetting.Designer.cs">
+      <DependentUpon>AutosaveSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingPanels\CaptureSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingPanels\CaptureSetting.Designer.cs">
+      <DependentUpon>CaptureSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingPanels\GeneralSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingPanels\GeneralSetting.Designer.cs">
+      <DependentUpon>GeneralSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingPanels\SettingPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingPanels\ShortcutSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingPanels\ShortcutSetting.Designer.cs">
+      <DependentUpon>ShortcutSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="BackDragForm.resx">
       <DependentUpon>BackDragForm.cs</DependentUpon>
@@ -123,6 +151,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingPanels\AutosaveSetting.resx">
+      <DependentUpon>AutosaveSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingPanels\CaptureSetting.resx">
+      <DependentUpon>CaptureSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingPanels\GeneralSetting.resx">
+      <DependentUpon>GeneralSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingPanels\ShortcutSetting.resx">
+      <DependentUpon>ShortcutSetting.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

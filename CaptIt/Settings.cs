@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.Reflection;
 using System.Windows.Forms;
@@ -10,13 +11,32 @@ namespace CaptIt
     [Serializable]
     public class Settings
     {
-        public bool isSaveAuto { get; set; }
-        public string AutoSavePath { get; set; }
-        public ImageFormat ImageFormat { get; set; }
+        #region GENERAL
+        public bool IsStartUp { get; set; }
+        public bool CheckForUpdate { get; set; }
+        #endregion
 
+        #region CAPTURE
+        public bool IsCaptureSoundEffect { get; set; }
+        public string CaptureSoundEffect { get; set; }
+        public ClipboardType ClipboardType { get; set; }
+        public Color DragCaptureBackGroundColor { get; set; }
+        public double DragCaptureOpcaity { get; set; }
+        #endregion;
+
+        #region AUTOSAVE
+        public bool IsSaveAuto { get; set; }
+        public string AutoSavePath { get; set; }
+        public string SaveFileNameFormat { get; set; } //수정할 때마다 올바른 포맷인지 검사를 할 필요 있음.
+        public float SaveImageSize { get; set; }
+        public ImageFormat ImageFormat { get; set; }
+        #endregion
+
+        #region KEYS
         public Keys FullScreenShotKey { get; set; }
         public Keys DragScreenShotKey { get; set; }
         public Keys WindowScreenShotKey { get; set; }
+        #endregion
 
         public Settings()
         {
@@ -45,8 +65,19 @@ namespace CaptIt
         {
             return new Settings()
             {
-                isSaveAuto = true,
+                IsStartUp = true,
+                CheckForUpdate = true,
+
+                DragCaptureBackGroundColor = Color.White,
+                DragCaptureOpcaity = 0.5,
+                IsCaptureSoundEffect = true,
+                CaptureSoundEffect = "camera1",
+                ClipboardType = ClipboardType.NONE,
+
+                IsSaveAuto = true,
                 AutoSavePath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
+                SaveFileNameFormat = "{yyyy}{MM}{dd}-{HH}{mm}{ss}.png",
+                SaveImageSize = 1,
                 ImageFormat = ImageFormat.Png,
 
                 FullScreenShotKey = Keys.PrintScreen,
