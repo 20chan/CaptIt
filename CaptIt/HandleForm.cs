@@ -277,8 +277,34 @@ namespace CaptIt
             form.WaitUntilDrag.WaitOne();
             form.WaitUntilDrag.Reset();
             form.Close();
+            form.Dispose();
             isAlreadyHandling = false;
             return form.LastWindow;
+        }
+
+        Point old = new Point();
+        private void HandleForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            old = new Point(e.X, e.Y);
+        }
+
+        private void HandleForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                Location = new Point(this.Left - (old.X - e.X),
+                    this.Top - (old.Y - e.Y));
+            }
+        }
+
+        private void label1_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawImage(Resources1.Hand, new Rectangle(57 - 12, 29 - 26, 64, 78));
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

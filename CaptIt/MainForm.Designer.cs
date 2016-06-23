@@ -36,9 +36,17 @@
             this.전체화면FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.드래그영역DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.윈도우WToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.종료ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.설정SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.종료ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pFront = new System.Windows.Forms.Panel();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.lbName = new System.Windows.Forms.Label();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnCamera = new System.Windows.Forms.Button();
+            this.btnHouse = new System.Windows.Forms.Button();
             this.cmsCapture.SuspendLayout();
+            this.pFront.SuspendLayout();
             this.SuspendLayout();
             // 
             // niTrayIcon
@@ -55,7 +63,7 @@
             this.설정SToolStripMenuItem,
             this.종료ToolStripMenuItem});
             this.cmsCapture.Name = "contextMenuStrip1";
-            this.cmsCapture.Size = new System.Drawing.Size(153, 92);
+            this.cmsCapture.Size = new System.Drawing.Size(115, 70);
             // 
             // 캡쳐CToolStripMenuItem
             // 
@@ -64,7 +72,7 @@
             this.드래그영역DToolStripMenuItem,
             this.윈도우WToolStripMenuItem});
             this.캡쳐CToolStripMenuItem.Name = "캡쳐CToolStripMenuItem";
-            this.캡쳐CToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.캡쳐CToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.캡쳐CToolStripMenuItem.Text = "캡쳐(&C)";
             // 
             // 전체화면FToolStripMenuItem
@@ -88,31 +96,147 @@
             this.윈도우WToolStripMenuItem.Text = "윈도우(&W)";
             this.윈도우WToolStripMenuItem.Click += new System.EventHandler(this.윈도우WToolStripMenuItem_Click);
             // 
-            // 종료ToolStripMenuItem
-            // 
-            this.종료ToolStripMenuItem.Name = "종료ToolStripMenuItem";
-            this.종료ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.종료ToolStripMenuItem.Text = "종료(&X)";
-            this.종료ToolStripMenuItem.Click += new System.EventHandler(this.종료ToolStripMenuItem_Click);
-            // 
             // 설정SToolStripMenuItem
             // 
             this.설정SToolStripMenuItem.Name = "설정SToolStripMenuItem";
-            this.설정SToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.설정SToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.설정SToolStripMenuItem.Text = "설정(&S)";
             this.설정SToolStripMenuItem.Click += new System.EventHandler(this.설정SToolStripMenuItem_Click);
+            // 
+            // 종료ToolStripMenuItem
+            // 
+            this.종료ToolStripMenuItem.Name = "종료ToolStripMenuItem";
+            this.종료ToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.종료ToolStripMenuItem.Text = "종료(&X)";
+            this.종료ToolStripMenuItem.Click += new System.EventHandler(this.종료ToolStripMenuItem_Click);
+            // 
+            // pFront
+            // 
+            this.pFront.BackColor = System.Drawing.Color.White;
+            this.pFront.Controls.Add(this.btnSetting);
+            this.pFront.Controls.Add(this.lbName);
+            this.pFront.Controls.Add(this.btnMinimize);
+            this.pFront.Controls.Add(this.btnClose);
+            this.pFront.Controls.Add(this.btnCamera);
+            this.pFront.Location = new System.Drawing.Point(1, 1);
+            this.pFront.Margin = new System.Windows.Forms.Padding(0);
+            this.pFront.Name = "pFront";
+            this.pFront.Size = new System.Drawing.Size(298, 159);
+            this.pFront.TabIndex = 2;
+            this.pFront.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.pFront.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.FlatAppearance.BorderSize = 0;
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
+            this.btnSetting.Location = new System.Drawing.Point(222, 1);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(25, 25);
+            this.btnSetting.TabIndex = 5;
+            this.btnSetting.TabStop = false;
+            this.btnSetting.UseVisualStyleBackColor = true;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            this.btnSetting.Paint += new System.Windows.Forms.PaintEventHandler(this.btnSetting_Paint);
+            // 
+            // lbName
+            // 
+            this.lbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(173)))), ((int)(((byte)(255)))));
+            this.lbName.Location = new System.Drawing.Point(3, 6);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(67, 25);
+            this.lbName.TabIndex = 4;
+            this.lbName.Text = "CaptIt";
+            this.lbName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.lbName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(173)))), ((int)(((byte)(255)))));
+            this.btnMinimize.Location = new System.Drawing.Point(247, 1);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(25, 25);
+            this.btnMinimize.TabIndex = 3;
+            this.btnMinimize.TabStop = false;
+            this.btnMinimize.Text = "_";
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(173)))), ((int)(((byte)(255)))));
+            this.btnClose.Location = new System.Drawing.Point(272, 1);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(25, 25);
+            this.btnClose.TabIndex = 2;
+            this.btnClose.TabStop = false;
+            this.btnClose.Text = "x";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnCamera
+            // 
+            this.btnCamera.BackColor = System.Drawing.Color.White;
+            this.btnCamera.FlatAppearance.BorderSize = 0;
+            this.btnCamera.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCamera.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCamera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCamera.Image = global::CaptIt.Resources1.CamNormal;
+            this.btnCamera.Location = new System.Drawing.Point(100, 40);
+            this.btnCamera.Name = "btnCamera";
+            this.btnCamera.Size = new System.Drawing.Size(100, 100);
+            this.btnCamera.TabIndex = 1;
+            this.btnCamera.TabStop = false;
+            this.btnCamera.UseVisualStyleBackColor = false;
+            this.btnCamera.Click += new System.EventHandler(this.btnCamera_Click);
+            this.btnCamera.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnCamera_MouseDown);
+            this.btnCamera.MouseEnter += new System.EventHandler(this.btnCamera_MouseEnter);
+            this.btnCamera.MouseLeave += new System.EventHandler(this.btnCamera_MouseLeave);
+            this.btnCamera.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnCamera_MouseUp);
+            // 
+            // btnHouse
+            // 
+            this.btnHouse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnHouse.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnHouse.FlatAppearance.BorderSize = 0;
+            this.btnHouse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHouse.Location = new System.Drawing.Point(278, 160);
+            this.btnHouse.Margin = new System.Windows.Forms.Padding(0);
+            this.btnHouse.Name = "btnHouse";
+            this.btnHouse.Size = new System.Drawing.Size(20, 20);
+            this.btnHouse.TabIndex = 4;
+            this.btnHouse.TabStop = false;
+            this.btnHouse.UseVisualStyleBackColor = false;
+            this.btnHouse.Click += new System.EventHandler(this.btnHouse_Click);
+            this.btnHouse.Paint += new System.Windows.Forms.PaintEventHandler(this.btnHouse_Paint);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(179, 47);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(300, 180);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnHouse);
+            this.Controls.Add(this.pFront);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "CaptIt";
             this.cmsCapture.ResumeLayout(false);
+            this.pFront.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -127,6 +251,13 @@
         private System.Windows.Forms.ToolStripMenuItem 윈도우WToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 종료ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 설정SToolStripMenuItem;
+        private System.Windows.Forms.Button btnCamera;
+        private System.Windows.Forms.Panel pFront;
+        private System.Windows.Forms.Button btnMinimize;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnHouse;
+        private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.Button btnSetting;
     }
 }
 

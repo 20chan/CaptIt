@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Drawing;
 using Capture;
 
@@ -14,7 +11,7 @@ namespace CaptIt
         {
             return CaptureLib.CaptureScreen();
         }
-
+        
         public static Image DragScreenShot()
         {
             using (Bitmap screen = (Bitmap)CaptureLib.CaptureScreen())

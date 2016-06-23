@@ -22,5 +22,17 @@ namespace CaptIt.SettingPanels
         {
 
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // SettingPanel
+            // 
+            this.Name = "SettingPanel";
+            this.Size = new System.Drawing.Size(640, 474);
+            this.ResumeLayout(false);
+
+        }
     }
 }

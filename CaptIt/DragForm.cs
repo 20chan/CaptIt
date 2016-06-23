@@ -17,11 +17,13 @@ namespace CaptIt
             InitializeComponent();
 
             this.Size = CaptureLib.FullScreensSize();
+            back = new Bitmap(Size.Width, Size.Height);
         }
 
         bool isDown = false;
         bool isDone = false;
         Point firstPoint;
+        Bitmap back;
         private void DragForm_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -50,10 +52,12 @@ namespace CaptIt
 
                     this.panel1.Location = new Point(x + 1, y + 1);
                     this.panel1.Size = new Size(width + 1, height + 1);
-
-                    Graphics g = this.CreateGraphics();
+                    /*
+                    Graphics g = Graphics.FromImage(back);
                     g.Clear(BackColor);
                     g.DrawRectangle(Pens.Red, x, y, width, height);
+                    this.CreateGraphics().DrawImage(back, 0, 0);
+                    */
                 }
             }
             catch

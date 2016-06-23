@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbClipboard = new System.Windows.Forms.ComboBox();
+            this.cbClip = new System.Windows.Forms.CheckBox();
+            this.cbSound = new System.Windows.Forms.ComboBox();
             this.cbSoundEffect = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbColor = new System.Windows.Forms.Label();
-            this.lbOpacity = new System.Windows.Forms.Label();
+            this.tbOpacity = new System.Windows.Forms.TrackBar();
             this.btnColor = new System.Windows.Forms.Button();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.lbOpacity = new System.Windows.Forms.Label();
+            this.lbColor = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbOpacity)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbClipboard);
+            this.groupBox1.Controls.Add(this.cbClip);
+            this.groupBox1.Controls.Add(this.cbSound);
             this.groupBox1.Controls.Add(this.cbSoundEffect);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
@@ -56,15 +56,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "캡쳐 일반";
             // 
-            // comboBox1
+            // cbClipboard
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbClipboard.FormattingEnabled = true;
+            this.cbClipboard.Items.AddRange(new object[] {
+            "이미지 복사",
+            "이미지 경로 복사"});
+            this.cbClipboard.Location = new System.Drawing.Point(253, 51);
+            this.cbClipboard.Name = "cbClipboard";
+            this.cbClipboard.Size = new System.Drawing.Size(210, 23);
+            this.cbClipboard.TabIndex = 3;
+            // 
+            // cbClip
+            // 
+            this.cbClip.AutoSize = true;
+            this.cbClip.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbClip.Location = new System.Drawing.Point(89, 53);
+            this.cbClip.Name = "cbClip";
+            this.cbClip.Size = new System.Drawing.Size(158, 19);
+            this.cbClip.TabIndex = 2;
+            this.cbClip.Text = "캡처 후 클립보드로 복사";
+            this.cbClip.UseVisualStyleBackColor = true;
+            // 
+            // cbSound
+            // 
+            this.cbSound.FormattingEnabled = true;
+            this.cbSound.Items.AddRange(new object[] {
             "카메라 셔터 소리1"});
-            this.comboBox1.Location = new System.Drawing.Point(253, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(210, 23);
-            this.comboBox1.TabIndex = 1;
+            this.cbSound.Location = new System.Drawing.Point(253, 22);
+            this.cbSound.Name = "cbSound";
+            this.cbSound.Size = new System.Drawing.Size(210, 23);
+            this.cbSound.TabIndex = 1;
             // 
             // cbSoundEffect
             // 
@@ -77,31 +99,9 @@
             this.cbSoundEffect.Text = "캡쳐할 때 효과음 실행";
             this.cbSoundEffect.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox1.Location = new System.Drawing.Point(89, 53);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(158, 19);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "캡처 후 클립보드로 복사";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "이미지 복사",
-            "이미지 경로 복사"});
-            this.comboBox2.Location = new System.Drawing.Point(253, 51);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(210, 23);
-            this.comboBox2.TabIndex = 3;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.trackBar1);
+            this.groupBox2.Controls.Add(this.tbOpacity);
             this.groupBox2.Controls.Add(this.btnColor);
             this.groupBox2.Controls.Add(this.lbOpacity);
             this.groupBox2.Controls.Add(this.lbColor);
@@ -112,15 +112,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "영역 지정 캡쳐";
             // 
-            // lbColor
+            // tbOpacity
             // 
-            this.lbColor.AutoSize = true;
-            this.lbColor.Location = new System.Drawing.Point(177, 25);
-            this.lbColor.Name = "lbColor";
-            this.lbColor.Size = new System.Drawing.Size(70, 15);
-            this.lbColor.TabIndex = 4;
-            this.lbColor.Text = "배경 색상 : ";
-            this.lbColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tbOpacity.LargeChange = 10;
+            this.tbOpacity.Location = new System.Drawing.Point(253, 50);
+            this.tbOpacity.Maximum = 100;
+            this.tbOpacity.Minimum = 1;
+            this.tbOpacity.Name = "tbOpacity";
+            this.tbOpacity.Size = new System.Drawing.Size(210, 45);
+            this.tbOpacity.TabIndex = 5;
+            this.tbOpacity.TickFrequency = 10;
+            this.tbOpacity.Value = 1;
+            // 
+            // btnColor
+            // 
+            this.btnColor.Location = new System.Drawing.Point(253, 21);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(210, 23);
+            this.btnColor.TabIndex = 6;
+            this.btnColor.Text = "색상 선택";
+            this.btnColor.UseVisualStyleBackColor = true;
             // 
             // lbOpacity
             // 
@@ -132,42 +143,31 @@
             this.lbOpacity.Text = "배경 투명도 : ";
             this.lbOpacity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnColor
+            // lbColor
             // 
-            this.btnColor.Location = new System.Drawing.Point(253, 21);
-            this.btnColor.Name = "btnColor";
-            this.btnColor.Size = new System.Drawing.Size(210, 23);
-            this.btnColor.TabIndex = 6;
-            this.btnColor.Text = "색상 선택";
-            this.btnColor.UseVisualStyleBackColor = true;
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.LargeChange = 10;
-            this.trackBar1.Location = new System.Drawing.Point(253, 50);
-            this.trackBar1.Maximum = 100;
-            this.trackBar1.Minimum = 1;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(210, 45);
-            this.trackBar1.TabIndex = 5;
-            this.trackBar1.TickFrequency = 10;
-            this.trackBar1.Value = 1;
+            this.lbColor.AutoSize = true;
+            this.lbColor.Location = new System.Drawing.Point(177, 25);
+            this.lbColor.Name = "lbColor";
+            this.lbColor.Size = new System.Drawing.Size(70, 15);
+            this.lbColor.TabIndex = 4;
+            this.lbColor.Text = "배경 색상 : ";
+            this.lbColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CaptureSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.Name = "CaptureSetting";
-            this.Size = new System.Drawing.Size(640, 500);
+            this.Size = new System.Drawing.Size(640, 474);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbOpacity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -176,11 +176,11 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox cbSoundEffect;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox cbSound;
+        private System.Windows.Forms.ComboBox cbClipboard;
+        private System.Windows.Forms.CheckBox cbClip;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar tbOpacity;
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.Label lbOpacity;
         private System.Windows.Forms.Label lbColor;

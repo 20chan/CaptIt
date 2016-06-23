@@ -28,21 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.keyControl1 = new CaptIt.SettingPanels.CustomControl.KeyControl();
+            this.keyControl2 = new CaptIt.SettingPanels.CustomControl.KeyControl();
+            this.keyControl3 = new CaptIt.SettingPanels.CustomControl.KeyControl();
             this.SuspendLayout();
+            // 
+            // keyControl1
+            // 
+            this.keyControl1.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.keyControl1.Key = System.Windows.Forms.Keys.None;
+            this.keyControl1.Location = new System.Drawing.Point(241, 29);
+            this.keyControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.keyControl1.Name = "keyControl1";
+            this.keyControl1.Size = new System.Drawing.Size(210, 23);
+            this.keyControl1.TabIndex = 0;
+            // 
+            // keyControl2
+            // 
+            this.keyControl2.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.keyControl2.Key = System.Windows.Forms.Keys.None;
+            this.keyControl2.Location = new System.Drawing.Point(241, 91);
+            this.keyControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.keyControl2.Name = "keyControl2";
+            this.keyControl2.Size = new System.Drawing.Size(210, 23);
+            this.keyControl2.TabIndex = 1;
+            // 
+            // keyControl3
+            // 
+            this.keyControl3.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.keyControl3.Key = System.Windows.Forms.Keys.None;
+            this.keyControl3.Location = new System.Drawing.Point(241, 60);
+            this.keyControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.keyControl3.Name = "keyControl3";
+            this.keyControl3.Size = new System.Drawing.Size(210, 23);
+            this.keyControl3.TabIndex = 2;
             // 
             // ShortcutSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.keyControl3);
+            this.Controls.Add(this.keyControl2);
+            this.Controls.Add(this.keyControl1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ShortcutSetting";
-            this.Size = new System.Drawing.Size(640, 500);
+            this.Size = new System.Drawing.Size(640, 474);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private CustomControl.KeyControl keyControl1;
+        private CustomControl.KeyControl keyControl2;
+        private CustomControl.KeyControl keyControl3;
     }
 }
