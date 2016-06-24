@@ -18,6 +18,7 @@ namespace CaptIt
             InitializeComponent();
             Main = this;
             _settings = Settings.Default();
+            _settings.AutoSavePath = "D:\\Captured\\";
             _hotkey = new ShortCutManager();
 
             this.CamNormal = Resources1.CamNormal;
@@ -69,10 +70,8 @@ namespace CaptIt
             if (image == null) return;
 
             (new System.Media.SoundPlayer(Resources1.camera1)).Play();
-
-            string format = "{yyyy}{MM}{dd}-{HH}{mm}{ss}.png";
-            format = "이미지 {c}.png";
-            ImageSave.SaveImage(image, "D:\\Captured\\", format, System.Drawing.Imaging.ImageFormat.Png);
+            
+            ImageSave.SaveImage(image, _settings.AutoSavePath, _settings.SaveFileNameFormat, _settings.ImageFormat);
             //자동 저장
             //이미지 편집기를 띄움
             image.Dispose();

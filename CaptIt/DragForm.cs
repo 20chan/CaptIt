@@ -99,6 +99,11 @@ namespace CaptIt
             WaitUntilDrag.Set();
         }
 
+        public void DisposeBack()
+        {
+            back.Dispose();
+        }
+
         private static void ShowBackDragForm(object f)
         {
             ((BackDragForm)f).ShowDialog();
@@ -123,6 +128,8 @@ namespace CaptIt
             Rectangle rect = form.Result;
 
             form.Close();
+            //두번째 메모리 릭도 고쳤다. DragForm 에서 back 이미지 판넬 (더블 버퍼링용)이 Dispose되지 않았던 것이었다.
+            form.DisposeDragForm();
             //바뀌었다. 원래는 Dispose를 했어야 하지만, 이제는 ScreenShot 클래스에서 사용하기 때문에 그대로 내보낸다.
             //form.BackgroundImage.Dispose(); //요놈 잡느라고 30분 걸렸다!! ㅠㅠ
             form.Dispose();

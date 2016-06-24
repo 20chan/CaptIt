@@ -189,7 +189,7 @@
             this.btnCamera.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnCamera.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnCamera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCamera.Image = global::CaptIt.Resources1.CamNormal;
+            this.btnCamera.Image = ((System.Drawing.Image)(resources.GetObject("btnCamera.Image")));
             this.btnCamera.Location = new System.Drawing.Point(100, 40);
             this.btnCamera.Name = "btnCamera";
             this.btnCamera.Size = new System.Drawing.Size(100, 100);

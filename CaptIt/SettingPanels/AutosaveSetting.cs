@@ -35,6 +35,7 @@ namespace CaptIt.SettingPanels
         public override void SaveSettings(Settings setting)
         {
             //TODO: 올바른 경로인지, 올바른 파일 이름 포맷인지 검사. 아니면 리턴.
+            
             base.LoadSettings(setting);
         }
     }

@@ -75,6 +75,12 @@
     <Compile Include="DragForm.Designer.cs">
       <DependentUpon>DragForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GotUpdatedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GotUpdatedForm.Designer.cs">
+      <DependentUpon>GotUpdatedForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HandleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,7 @@
       <DependentUpon>ShortcutSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="Updater.cs" />
     <EmbeddedResource Include="BackDragForm.resx">
       <DependentUpon>BackDragForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -22,6 +22,12 @@ namespace CaptIt
             _form = new DragForm();
         }
 
+        public void DisposeDragForm()
+        {
+            _form.DisposeBack();
+            _form.Dispose();
+        }
+
         private void BackDragForm_Shown(object sender, EventArgs e)
         {
             _form.ShowDialog();
