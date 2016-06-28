@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnTest = new System.Windows.Forms.Button();
             this.cbClipboard = new System.Windows.Forms.ComboBox();
             this.cbClip = new System.Windows.Forms.CheckBox();
             this.cbSound = new System.Windows.Forms.ComboBox();
@@ -45,6 +46,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnTest);
             this.groupBox1.Controls.Add(this.cbClipboard);
             this.groupBox1.Controls.Add(this.cbClip);
             this.groupBox1.Controls.Add(this.cbSound);
@@ -56,8 +58,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "캡쳐 일반";
             // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(469, 22);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(86, 23);
+            this.btnTest.TabIndex = 4;
+            this.btnTest.Text = "테스트";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // cbClipboard
             // 
+            this.cbClipboard.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbClipboard.FormattingEnabled = true;
             this.cbClipboard.Items.AddRange(new object[] {
             "이미지 복사",
@@ -77,12 +90,14 @@
             this.cbClip.TabIndex = 2;
             this.cbClip.Text = "캡처 후 클립보드로 복사";
             this.cbClip.UseVisualStyleBackColor = true;
+            this.cbClip.CheckedChanged += new System.EventHandler(this.cbClip_CheckedChanged);
             // 
             // cbSound
             // 
+            this.cbSound.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSound.FormattingEnabled = true;
             this.cbSound.Items.AddRange(new object[] {
-            "카메라 셔터 소리1"});
+            "camera1"});
             this.cbSound.Location = new System.Drawing.Point(253, 22);
             this.cbSound.Name = "cbSound";
             this.cbSound.Size = new System.Drawing.Size(210, 23);
@@ -98,6 +113,7 @@
             this.cbSoundEffect.TabIndex = 0;
             this.cbSoundEffect.Text = "캡쳐할 때 효과음 실행";
             this.cbSoundEffect.UseVisualStyleBackColor = true;
+            this.cbSoundEffect.CheckedChanged += new System.EventHandler(this.cbSoundEffect_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -132,6 +148,7 @@
             this.btnColor.TabIndex = 6;
             this.btnColor.Text = "색상 선택";
             this.btnColor.UseVisualStyleBackColor = true;
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
             // 
             // lbOpacity
             // 
@@ -184,5 +201,6 @@
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.Label lbOpacity;
         private System.Windows.Forms.Label lbColor;
+        private System.Windows.Forms.Button btnTest;
     }
 }

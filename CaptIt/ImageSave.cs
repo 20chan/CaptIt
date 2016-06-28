@@ -17,7 +17,7 @@ namespace CaptIt
         public static void SaveImage(Image img, string directory, string nameFormat, ImageFormat format)
         {
             string name = NameFormat(directory, nameFormat);
-            img.Save(directory + name, format);
+            img.Save(Path.Combine(directory, name), format);
         }
 
         private static string NameFormat(string directory, string name)

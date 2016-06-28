@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CaptIt.SettingPanels
@@ -37,6 +30,20 @@ namespace CaptIt.SettingPanels
             //TODO: 올바른 경로인지, 올바른 파일 이름 포맷인지 검사. 아니면 리턴.
             
             base.LoadSettings(setting);
+        }
+
+        private void cbAutosave_CheckedChanged(object sender, EventArgs e)
+        {
+            tbPath.Enabled = tbNameFormat.Enabled = cbAutosave.Checked;
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if(fbd.ShowDialog() == DialogResult.OK)
+            {
+                this.tbPath.Text = fbd.SelectedPath;
+            }
         }
     }
 }

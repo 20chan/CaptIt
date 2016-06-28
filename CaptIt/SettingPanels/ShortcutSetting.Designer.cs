@@ -28,61 +28,112 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.keyControl1 = new CaptIt.SettingPanels.CustomControl.KeyControl();
-            this.keyControl2 = new CaptIt.SettingPanels.CustomControl.KeyControl();
-            this.keyControl3 = new CaptIt.SettingPanels.CustomControl.KeyControl();
+            this.kcFullScreen = new CaptIt.SettingPanels.CustomControl.KeyControl();
+            this.lbFullScreen = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbDrag = new System.Windows.Forms.Label();
+            this.kcDrag = new CaptIt.SettingPanels.CustomControl.KeyControl();
+            this.lbWindow = new System.Windows.Forms.Label();
+            this.kcWindow = new CaptIt.SettingPanels.CustomControl.KeyControl();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // keyControl1
+            // kcFullScreen
             // 
-            this.keyControl1.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.keyControl1.Key = System.Windows.Forms.Keys.None;
-            this.keyControl1.Location = new System.Drawing.Point(241, 29);
-            this.keyControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.keyControl1.Name = "keyControl1";
-            this.keyControl1.Size = new System.Drawing.Size(210, 23);
-            this.keyControl1.TabIndex = 0;
+            this.kcFullScreen.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.kcFullScreen.Key = System.Windows.Forms.Keys.None;
+            this.kcFullScreen.Location = new System.Drawing.Point(253, 22);
+            this.kcFullScreen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.kcFullScreen.Name = "kcFullScreen";
+            this.kcFullScreen.Size = new System.Drawing.Size(210, 23);
+            this.kcFullScreen.TabIndex = 0;
             // 
-            // keyControl2
+            // lbFullScreen
             // 
-            this.keyControl2.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.keyControl2.Key = System.Windows.Forms.Keys.None;
-            this.keyControl2.Location = new System.Drawing.Point(241, 91);
-            this.keyControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.keyControl2.Name = "keyControl2";
-            this.keyControl2.Size = new System.Drawing.Size(210, 23);
-            this.keyControl2.TabIndex = 1;
+            this.lbFullScreen.Location = new System.Drawing.Point(151, 22);
+            this.lbFullScreen.Name = "lbFullScreen";
+            this.lbFullScreen.Size = new System.Drawing.Size(96, 23);
+            this.lbFullScreen.TabIndex = 3;
+            this.lbFullScreen.Text = "전체 화면 :";
+            this.lbFullScreen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+           
             // 
-            // keyControl3
+            // lbDrag
             // 
-            this.keyControl3.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.keyControl3.Key = System.Windows.Forms.Keys.None;
-            this.keyControl3.Location = new System.Drawing.Point(241, 60);
-            this.keyControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.keyControl3.Name = "keyControl3";
-            this.keyControl3.Size = new System.Drawing.Size(210, 23);
-            this.keyControl3.TabIndex = 2;
+            this.lbDrag.Location = new System.Drawing.Point(151, 51);
+            this.lbDrag.Name = "lbDrag";
+            this.lbDrag.Size = new System.Drawing.Size(96, 23);
+            this.lbDrag.TabIndex = 5;
+            this.lbDrag.Text = "드래그 영역 :";
+            this.lbDrag.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // kcDrag
+            // 
+            this.kcDrag.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.kcDrag.Key = System.Windows.Forms.Keys.None;
+            this.kcDrag.Location = new System.Drawing.Point(253, 51);
+            this.kcDrag.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.kcDrag.Name = "kcDrag";
+            this.kcDrag.Size = new System.Drawing.Size(210, 23);
+            this.kcDrag.TabIndex = 4;
+            // 
+            // lbWindow
+            // 
+            this.lbWindow.Location = new System.Drawing.Point(151, 80);
+            this.lbWindow.Name = "lbWindow";
+            this.lbWindow.Size = new System.Drawing.Size(96, 23);
+            this.lbWindow.TabIndex = 7;
+            this.lbWindow.Text = "윈도우 추적 :";
+            this.lbWindow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // kcWindow
+            // 
+            this.kcWindow.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.kcWindow.Key = System.Windows.Forms.Keys.None;
+            this.kcWindow.Location = new System.Drawing.Point(253, 80);
+            this.kcWindow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.kcWindow.Name = "kcWindow";
+            this.kcWindow.Size = new System.Drawing.Size(210, 23);
+            this.kcWindow.TabIndex = 6;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lbWindow);
+            this.groupBox1.Controls.Add(this.kcWindow);
+            this.groupBox1.Controls.Add(this.lbDrag);
+            this.groupBox1.Controls.Add(this.kcDrag);
+            this.groupBox1.Controls.Add(this.lbFullScreen);
+            this.groupBox1.Controls.Add(this.kcFullScreen);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(634, 116);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "일반 캡쳐";
             // 
             // ShortcutSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.keyControl3);
-            this.Controls.Add(this.keyControl2);
-            this.Controls.Add(this.keyControl1);
+            this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ShortcutSetting";
             this.Size = new System.Drawing.Size(640, 474);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private CustomControl.KeyControl keyControl1;
-        private CustomControl.KeyControl keyControl2;
-        private CustomControl.KeyControl keyControl3;
+        private CustomControl.KeyControl kcFullScreen;
+        private System.Windows.Forms.Label lbFullScreen;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lbDrag;
+        private CustomControl.KeyControl kcDrag;
+        private System.Windows.Forms.Label lbWindow;
+        private CustomControl.KeyControl kcWindow;
     }
 }

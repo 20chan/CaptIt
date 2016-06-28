@@ -18,6 +18,9 @@ namespace CaptIt
 
             this.Size = CaptureLib.FullScreensSize();
             back = new Bitmap(Size.Width, Size.Height);
+
+            this.Opacity = MainForm.Main.Settings.DragCaptureOpcaity;
+            this.BackColor = MainForm.Main.Settings.DragCaptureBackGroundColor;
         }
 
         bool isDown = false;

@@ -8,14 +8,15 @@ namespace CaptIt
 {
     static class Program
     {
-        /// <summary>
-        /// 해당 응용 프로그램의 주 진입점입니다.
-        /// </summary>
+        private static bool _running = false;
+        public static bool Running { get { return _running; } }
         [STAThread]
         static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            _running = true;
             if (args.Length > 0 && args[0] == "/updated")
                 Application.Run(new GotUpdatedForm(args));
             else

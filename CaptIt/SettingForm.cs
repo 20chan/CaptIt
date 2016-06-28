@@ -119,5 +119,20 @@ namespace CaptIt
         {
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (SettingPanel p in panels)
+            {
+                p.SaveSettings(_setting);
+            }
+
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

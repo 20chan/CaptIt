@@ -208,11 +208,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="camBrown.png" />
     <Content Include="CamNormal.ico" />
-    <Content Include="CaptIt.ico" />
     <Content Include="FileNameFormat.txt" />
-    <Content Include="camgrey.png" />
     <None Include="Resources\Hand.png" />
     <None Include="Resources\Setting.png" />
     <None Include="Resources\CamDark.png" />

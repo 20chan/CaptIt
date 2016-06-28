@@ -7,19 +7,27 @@ namespace CaptIt
     public partial class MainForm : Form
     {
         public static MainForm Main;
-        public Settings _settings;
+        private Settings _settings;
         private ShortCutManager _hotkey;
+        public event Action<Keys> HookKeyDown;
+
+        private bool _isSetting = false;
 
         private Image CamNormal;
         private Image CamBright;
         private Image CamDark;
+
+        public Settings Settings { get { return _settings; } }
+        public bool IsSetting { get { return _isSetting; } }
+
         public MainForm()
         {
             InitializeComponent();
             Main = this;
             _settings = Settings.Default();
-            _settings.AutoSavePath = "D:\\Captured\\";
+            //_settings.AutoSavePath = "D:\\Captured";
             _hotkey = new ShortCutManager();
+            _hotkey.KeyDowned += (k) => HookKeyDown?.Invoke(k);
 
             this.CamNormal = Resources1.CamNormal;
             this.CamBright = Resources1.CamBright;
@@ -69,12 +77,21 @@ namespace CaptIt
             GC.Collect();
             if (image == null) return;
 
-            (new System.Media.SoundPlayer(Resources1.camera1)).Play();
             
             ImageSave.SaveImage(image, _settings.AutoSavePath, _settings.SaveFileNameFormat, _settings.ImageFormat);
             //자동 저장
             //이미지 편집기를 띄움
             image.Dispose();
+        }
+
+        public void PlaySound(string name)
+        {
+            switch (name)
+            {
+                case "camera1":
+                    (new System.Media.SoundPlayer(Resources1.camera1)).Play();
+                    break;
+            }
         }
 
         private void 전체화면FToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,7 +116,9 @@ namespace CaptIt
 
         private void 설정SToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            _isSetting = true;
             SettingForm sf = new SettingForm(_settings);
+            sf.FormClosed += (b, d) => _isSetting = false;
             sf.Show();
         }
         

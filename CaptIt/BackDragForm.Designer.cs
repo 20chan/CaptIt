@@ -42,7 +42,7 @@
             this.Text = "BackDragForm";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BackDragForm_FormClosing);
-            this.Shown += new System.EventHandler(this.BackDragForm_Shown);
+            this.Load += new System.EventHandler(this.BackDragForm_Load);
             this.ResumeLayout(false);
 
         }

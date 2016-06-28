@@ -90,6 +90,7 @@
             this.btnBrowse.TabIndex = 5;
             this.btnBrowse.Text = "찾아 보기";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // tbPath
             // 
@@ -108,6 +109,7 @@
             this.cbAutosave.TabIndex = 0;
             this.cbAutosave.Text = "캡쳐 후 자동 저장";
             this.cbAutosave.UseVisualStyleBackColor = true;
+            this.cbAutosave.CheckedChanged += new System.EventHandler(this.cbAutosave_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -122,6 +124,7 @@
             // 
             // cbExtension
             // 
+            this.cbExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbExtension.FormattingEnabled = true;
             this.cbExtension.Items.AddRange(new object[] {
             "PNG",

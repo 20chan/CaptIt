@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CaptIt.SettingPanels
@@ -34,7 +27,8 @@ namespace CaptIt.SettingPanels
             else
             {
                 cbClip.Checked = true;
-                cbClipboard.Text = setting.ClipboardType.ToString();
+                if (setting.ClipboardType == ClipboardType.COPYIMAGE) cbClipboard.Text = "이미지 복사";
+                else if (setting.ClipboardType == ClipboardType.COPYPATH) cbClipboard.Text = "이미지 경로 복사";
             }
 
             btnColor.BackColor = setting.DragCaptureBackGroundColor;
@@ -57,6 +51,30 @@ namespace CaptIt.SettingPanels
             setting.DragCaptureBackGroundColor = btnColor.BackColor;
             setting.DragCaptureOpcaity = (double)tbOpacity.Value / 100.0;
             base.SaveSettings(setting);
+        }
+
+        private void cbSoundEffect_CheckedChanged(object sender, EventArgs e)
+        {
+            cbSound.Enabled = cbSoundEffect.Checked;
+        }
+
+        private void cbClip_CheckedChanged(object sender, EventArgs e)
+        {
+            cbClipboard.Enabled = cbClip.Checked;
+        }
+
+        private void btnColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog cd = new ColorDialog();
+            if (cd.ShowDialog() == DialogResult.OK)
+            {
+                this.btnColor.BackColor = cd.Color;
+            }
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            MainForm.Main.PlaySound(cbSound.Text);
         }
     }
 }
