@@ -9,6 +9,7 @@ namespace CaptIt
         public static MainForm Main;
         private Settings _settings;
         private ShortCutManager _hotkey;
+        private Updater _updater;
         public event Action<Keys> HookKeyDown;
 
         private bool _isSetting = false;
@@ -41,8 +42,13 @@ namespace CaptIt
                 this.btnHouse.FlatAppearance.BorderColor =
                 this.btnSetting.FlatAppearance.BorderColor =
                 Color.FromArgb(0, 255, 255, 255);
-
             //HideBeforeShow();
+
+            if (Settings.CheckForUpdate)
+            {
+                _updater = new Updater();
+                _updater.CheckForUpdate();
+            }
         }
 
         private void HideBeforeShow()
@@ -76,9 +82,8 @@ namespace CaptIt
         {
             GC.Collect();
             if (image == null) return;
-
-            
-            ImageSave.SaveImage(image, _settings.AutoSavePath, _settings.SaveFileNameFormat, _settings.ImageFormat);
+            if(Settings.IsCaptureSoundEffect) PlaySound(Settings.CaptureSoundEffect);
+            if(Settings.IsSaveAuto) ImageSave.SaveImage(image, Settings.AutoSavePath, Settings.SaveFileNameFormat, Settings.ImageFormat);
             //자동 저장
             //이미지 편집기를 띄움
             image.Dispose();
@@ -183,11 +188,6 @@ namespace CaptIt
             this.Show();
         }
 
-        private void btnCamera_Enter(object sender, EventArgs e)
-        {
-            this.Focus();
-        }
-
         private void btnSetting_Paint(object sender, PaintEventArgs e)
         {
             Bitmap bmp = Resources1.Setting;
@@ -204,7 +204,12 @@ namespace CaptIt
 
         private void btnHouse_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://blog.naver.com/phillyai");
+            System.Diagnostics.Process.Start("http://studio-sonagi.tistory.com/");
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            (new ProgramInfo()).Show();
         }
     }
 }

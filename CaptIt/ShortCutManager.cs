@@ -25,7 +25,7 @@ namespace CaptIt
         {
             KeyDowned?.Invoke(arg);
             if (MainForm.Main.IsSetting) return true;
-            //TODO: 이거 테이블? 같은 걸로 개선이 가능할 것 같음. 빠른 개선이 필요!!
+            //TODO: 이거 테이블? 같은 걸로 개선이 가능할 것 같음. 개선이 필요!!
             Keys key = arg;
             if ((Control.ModifierKeys & Keys.Shift) != 0) key |= Keys.Shift;
             if ((Control.ModifierKeys & Keys.Control) != 0) key |= Keys.Control;

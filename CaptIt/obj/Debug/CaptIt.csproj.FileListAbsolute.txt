@@ -23,3 +23,4 @@ D:\C#\CaptIt\CaptIt\bin\Debug\Capture.pdb
 D:\C#\CaptIt\CaptIt\bin\Debug\Hook.pdb
 D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.exe
 D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.pdb
+D:\C#\CaptIt\CaptIt\obj\Debug\CaptIt.ProgramInfo.resources

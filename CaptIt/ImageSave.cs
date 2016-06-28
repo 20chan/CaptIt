@@ -16,7 +16,7 @@ namespace CaptIt
         /// <param name="format">이미지 저장 포맷</param>
         public static void SaveImage(Image img, string directory, string nameFormat, ImageFormat format)
         {
-            string name = NameFormat(directory, nameFormat);
+            string name = NameFormat(directory + "\\", nameFormat);
             img.Save(Path.Combine(directory, name), format);
         }
 

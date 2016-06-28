@@ -76,7 +76,8 @@ namespace CaptIt
 
                 IsSaveAuto = true,
                 AutoSavePath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
-                SaveFileNameFormat = "이미지 {c}.png",
+                //SaveFileNameFormat = "{yyyy}{MM}{dd}-{tt}{hh}{mm}{ss}",
+                SaveFileNameFormat = "Image {c}.png",
                 SaveImageSize = 1,
                 ImageFormat = ImageFormat.Png,
 

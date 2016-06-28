@@ -23,6 +23,11 @@ namespace CaptIt
             throw new NotImplementedException();
         }
 
+        public void CheckForUpdate()
+        {
+
+        }
+
         public void DeletePreviousVersion()
         {
             //이 메서드는 이전 버젼의 프로그램이 업데이트 된 후, 실행되었을 때 이전 버젼의 프로그램을 삭제.

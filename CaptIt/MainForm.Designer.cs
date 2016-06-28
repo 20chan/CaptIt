@@ -45,6 +45,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnCamera = new System.Windows.Forms.Button();
             this.btnHouse = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.cmsCapture.SuspendLayout();
             this.pFront.SuspendLayout();
             this.SuspendLayout();
@@ -113,6 +114,7 @@
             // pFront
             // 
             this.pFront.BackColor = System.Drawing.Color.White;
+            this.pFront.Controls.Add(this.btnHelp);
             this.pFront.Controls.Add(this.btnSetting);
             this.pFront.Controls.Add(this.lbName);
             this.pFront.Controls.Add(this.btnMinimize);
@@ -131,7 +133,7 @@
             this.btnSetting.FlatAppearance.BorderSize = 0;
             this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
-            this.btnSetting.Location = new System.Drawing.Point(222, 1);
+            this.btnSetting.Location = new System.Drawing.Point(197, 1);
             this.btnSetting.Margin = new System.Windows.Forms.Padding(0);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Size = new System.Drawing.Size(25, 25);
@@ -218,6 +220,21 @@
             this.btnHouse.Click += new System.EventHandler(this.btnHouse_Click);
             this.btnHouse.Paint += new System.Windows.Forms.PaintEventHandler(this.btnHouse_Paint);
             // 
+            // btnHelp
+            // 
+            this.btnHelp.FlatAppearance.BorderSize = 0;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(173)))), ((int)(((byte)(255)))));
+            this.btnHelp.Location = new System.Drawing.Point(222, 1);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(0);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(25, 25);
+            this.btnHelp.TabIndex = 6;
+            this.btnHelp.TabStop = false;
+            this.btnHelp.Text = "?";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -258,6 +275,7 @@
         private System.Windows.Forms.Button btnHouse;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
 
