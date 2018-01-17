@@ -7,10 +7,17 @@ namespace CaptIt
 {
     public static class ImageSave
     {
+        /// <summary>
+        /// 이미지를 파일로 저장.
+        /// </summary>
+        /// <param name="img">저장할 이미지</param>
+        /// <param name="directory">이미지가 저장될 경로. (디렉터리)</param>
+        /// <param name="nameFormat">이미지 이름 (포맷)</param>
+        /// <param name="format">이미지 저장 포맷</param>
         public static void SaveImage(Image img, string directory, string nameFormat, ImageFormat format)
         {
-            string name = NameFormat(directory, nameFormat);
-            img.Save(directory + name, format);
+            string name = NameFormat(directory + "\\", nameFormat);
+            img.Save(Path.Combine(directory, name), format);
         }
 
         private static string NameFormat(string directory, string name)

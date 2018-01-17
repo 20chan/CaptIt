@@ -51,7 +51,7 @@
             this.gbProgram.Controls.Add(this.cbStartUp);
             this.gbProgram.Location = new System.Drawing.Point(3, 3);
             this.gbProgram.Name = "gbProgram";
-            this.gbProgram.Size = new System.Drawing.Size(637, 164);
+            this.gbProgram.Size = new System.Drawing.Size(634, 164);
             this.gbProgram.TabIndex = 1;
             this.gbProgram.TabStop = false;
             this.gbProgram.Text = "프로그램";
@@ -71,12 +71,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.gbProgram);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "GeneralSetting";
-            this.Size = new System.Drawing.Size(640, 500);
+            this.Size = new System.Drawing.Size(640, 474);
             this.gbProgram.ResumeLayout(false);
             this.gbProgram.PerformLayout();
             this.ResumeLayout(false);

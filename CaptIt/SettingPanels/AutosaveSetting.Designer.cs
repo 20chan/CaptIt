@@ -36,16 +36,10 @@
             this.tbPath = new System.Windows.Forms.TextBox();
             this.cbAutosave = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbSize = new System.Windows.Forms.Label();
             this.cbExtension = new System.Windows.Forms.ComboBox();
             this.lbExtension = new System.Windows.Forms.Label();
-            this.rbNoResize = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.tbrResize = new System.Windows.Forms.TrackBar();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbrResize)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -96,6 +90,7 @@
             this.btnBrowse.TabIndex = 5;
             this.btnBrowse.Text = "찾아 보기";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // tbPath
             // 
@@ -114,34 +109,22 @@
             this.cbAutosave.TabIndex = 0;
             this.cbAutosave.Text = "캡쳐 후 자동 저장";
             this.cbAutosave.UseVisualStyleBackColor = true;
+            this.cbAutosave.CheckedChanged += new System.EventHandler(this.cbAutosave_CheckedChanged);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.tbrResize);
-            this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Controls.Add(this.rbNoResize);
-            this.groupBox2.Controls.Add(this.lbSize);
             this.groupBox2.Controls.Add(this.cbExtension);
             this.groupBox2.Controls.Add(this.lbExtension);
             this.groupBox2.Location = new System.Drawing.Point(3, 106);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(634, 174);
+            this.groupBox2.Size = new System.Drawing.Size(634, 67);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "이미지 설정";
             // 
-            // lbSize
-            // 
-            this.lbSize.AutoSize = true;
-            this.lbSize.Location = new System.Drawing.Point(153, 54);
-            this.lbSize.Name = "lbSize";
-            this.lbSize.Size = new System.Drawing.Size(78, 15);
-            this.lbSize.TabIndex = 9;
-            this.lbSize.Text = "이미지 크기 :";
-            // 
             // cbExtension
             // 
+            this.cbExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbExtension.FormattingEnabled = true;
             this.cbExtension.Items.AddRange(new object[] {
             "PNG",
@@ -156,71 +139,27 @@
             // lbExtension
             // 
             this.lbExtension.AutoSize = true;
-            this.lbExtension.Location = new System.Drawing.Point(153, 25);
+            this.lbExtension.Location = new System.Drawing.Point(157, 25);
             this.lbExtension.Name = "lbExtension";
-            this.lbExtension.Size = new System.Drawing.Size(94, 15);
+            this.lbExtension.Size = new System.Drawing.Size(90, 15);
             this.lbExtension.TabIndex = 6;
-            this.lbExtension.Text = "이미지 확장자 : ";
-            // 
-            // rbNoResize
-            // 
-            this.rbNoResize.AutoSize = true;
-            this.rbNoResize.Location = new System.Drawing.Point(253, 52);
-            this.rbNoResize.Name = "rbNoResize";
-            this.rbNoResize.Size = new System.Drawing.Size(117, 19);
-            this.rbNoResize.TabIndex = 10;
-            this.rbNoResize.TabStop = true;
-            this.rbNoResize.Text = "이미지 변경 없음";
-            this.rbNoResize.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(253, 77);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(49, 19);
-            this.radioButton1.TabIndex = 11;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "배율";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // tbrResize
-            // 
-            this.tbrResize.LargeChange = 3;
-            this.tbrResize.Location = new System.Drawing.Point(469, 77);
-            this.tbrResize.Maximum = 12;
-            this.tbrResize.Minimum = 1;
-            this.tbrResize.Name = "tbrResize";
-            this.tbrResize.Size = new System.Drawing.Size(86, 45);
-            this.tbrResize.TabIndex = 12;
-            this.tbrResize.TickFrequency = 3;
-            this.tbrResize.Value = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(561, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 15);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "label1";
+            this.lbExtension.Text = "이미지 확장자 :";
             // 
             // AutosaveSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AutosaveSetting";
-            this.Size = new System.Drawing.Size(640, 500);
+            this.Size = new System.Drawing.Size(640, 474);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbrResize)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -237,10 +176,5 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cbExtension;
         private System.Windows.Forms.Label lbExtension;
-        private System.Windows.Forms.Label lbSize;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TrackBar tbrResize;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton rbNoResize;
     }
 }

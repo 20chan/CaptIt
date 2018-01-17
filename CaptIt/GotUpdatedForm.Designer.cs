@@ -1,6 +1,6 @@
 ﻿namespace CaptIt
 {
-    partial class BackDragForm
+    partial class GotUpdatedForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // BackDragForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "BackDragForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.Text = "BackDragForm";
-            this.TopMost = true;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BackDragForm_FormClosing);
-            this.Load += new System.EventHandler(this.BackDragForm_Load);
-            this.ResumeLayout(false);
-
+            this.Text = "GotUpdatedForm";
         }
 
         #endregion

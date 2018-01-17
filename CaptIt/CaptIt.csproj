@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>CaptIt.ico</ApplicationIcon>
+    <ApplicationIcon>CamNormal.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Capture">
@@ -61,6 +62,12 @@
     <Compile Include="BackDragForm.Designer.cs">
       <DependentUpon>BackDragForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckImageForm.Designer.cs">
+      <DependentUpon>CheckImageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClipboardType.cs" />
     <Compile Include="DragForm.cs">
       <SubType>Form</SubType>
@@ -68,13 +75,30 @@
     <Compile Include="DragForm.Designer.cs">
       <DependentUpon>DragForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GotUpdatedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GotUpdatedForm.Designer.cs">
+      <DependentUpon>GotUpdatedForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HandleForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HandleForm.Designer.cs">
       <DependentUpon>HandleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HotKeyManager.cs" />
+    <Compile Include="ProgramInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgramInfo.Designer.cs">
+      <DependentUpon>ProgramInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ShortCutManager.cs" />
     <Compile Include="ImageSave.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -84,11 +108,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="camsound.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>camsound.resx</DependentUpon>
-    </Compile>
     <Compile Include="ScreenShot.cs" />
     <Compile Include="SettingForm.cs">
       <SubType>Form</SubType>
@@ -108,6 +127,12 @@
     <Compile Include="SettingPanels\CaptureSetting.Designer.cs">
       <DependentUpon>CaptureSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingPanels\CustomControl\KeyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingPanels\CustomControl\KeyControl.Designer.cs">
+      <DependentUpon>KeyControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingPanels\GeneralSetting.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,8 +149,12 @@
       <DependentUpon>ShortcutSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="Updater.cs" />
     <EmbeddedResource Include="BackDragForm.resx">
       <DependentUpon>BackDragForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckImageForm.resx">
+      <DependentUpon>CheckImageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DragForm.resx">
       <DependentUpon>DragForm.cs</DependentUpon>
@@ -136,6 +165,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProgramInfo.resx">
+      <DependentUpon>ProgramInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -144,10 +176,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="camsound.resx">
+    <EmbeddedResource Include="Resources1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>camsound.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
@@ -158,8 +191,14 @@
     <EmbeddedResource Include="SettingPanels\CaptureSetting.resx">
       <DependentUpon>CaptureSetting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SettingPanels\CustomControl\KeyControl.resx">
+      <DependentUpon>KeyControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SettingPanels\GeneralSetting.resx">
       <DependentUpon>GeneralSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingPanels\SettingPanel.resx">
+      <DependentUpon>SettingPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingPanels\ShortcutSetting.resx">
       <DependentUpon>ShortcutSetting.cs</DependentUpon>
@@ -178,8 +217,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CaptIt.ico" />
+    <Content Include="CamNormal.ico" />
     <Content Include="FileNameFormat.txt" />
+    <None Include="Resources\Hand.png" />
+    <None Include="Resources\Setting.png" />
+    <None Include="Resources\CamDark.png" />
+    <None Include="Resources\CamBright.png" />
+    <None Include="Resources\CamNormal.png" />
+    <None Include="Resources\house.png" />
     <None Include="Resources\camera1.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

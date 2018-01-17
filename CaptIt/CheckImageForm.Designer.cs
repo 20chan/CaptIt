@@ -1,6 +1,6 @@
 ﻿namespace CaptIt
 {
-    partial class BackDragForm
+    partial class CheckImageForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,19 +30,16 @@
         {
             this.SuspendLayout();
             // 
-            // BackDragForm
+            // CheckImageForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(454, 120);
+            this.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "BackDragForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.Text = "BackDragForm";
-            this.TopMost = true;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BackDragForm_FormClosing);
-            this.Load += new System.EventHandler(this.BackDragForm_Load);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "CheckImageForm";
+            this.Text = "CheckImageForm";
             this.ResumeLayout(false);
 
         }

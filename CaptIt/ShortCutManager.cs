@@ -3,10 +3,11 @@ using System.Windows.Forms;
 using Hook;
 namespace CaptIt
 {
-    public class HotKeyManager
+    public class ShortCutManager
     {
         private KeyboardHook _hook;
-        public HotKeyManager()
+        public event Action<Keys> KeyDowned;
+        public ShortCutManager()
         {
             _hook = new KeyboardHook();
             _hook.KeyDown += _hook_KeyDown;
@@ -15,24 +16,26 @@ namespace CaptIt
             _hook.HookStart();
         }
 
-        ~HotKeyManager()
+        ~ShortCutManager()
         {
             _hook.HookEnd();
         }
 
         private bool _hook_KeyDown(Keys arg)
         {
-            //이거 테이블? 같은 걸로 개선이 가능할 것 같음. 빠른 개선이 필요!!
+            KeyDowned?.Invoke(arg);
+            if (MainForm.Main.IsSetting) return true;
+            //TODO: 이거 테이블? 같은 걸로 개선이 가능할 것 같음. 개선이 필요!!
             Keys key = arg;
             if ((Control.ModifierKeys & Keys.Shift) != 0) key |= Keys.Shift;
             if ((Control.ModifierKeys & Keys.Control) != 0) key |= Keys.Control;
             if ((Control.ModifierKeys & Keys.Alt) != 0) key |= Keys.Alt;
 
-            if (MainForm.Main._settings.FullScreenShotKey == key)
+            if (MainForm.Main.Settings.FullScreenShotKey == key)
                 MainForm.Main.CaptureFullScreenShot();
-            if (MainForm.Main._settings.DragScreenShotKey == key)
+            if (MainForm.Main.Settings.DragScreenShotKey == key)
                 MainForm.Main.CaptureDragScreenShot();
-            if (MainForm.Main._settings.WindowScreenShotKey == key)
+            if (MainForm.Main.Settings.WindowScreenShotKey == key)
                 MainForm.Main.CaptureWindowScreenShot();
 
             return true;

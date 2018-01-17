@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace CaptIt.SettingPanels
 {
@@ -20,6 +15,18 @@ namespace CaptIt.SettingPanels
         }
         public virtual void SaveSettings(Settings setting)
         {
+
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // SettingPanel
+            // 
+            this.Name = "SettingPanel";
+            this.Size = new System.Drawing.Size(640, 474);
+            this.ResumeLayout(false);
 
         }
     }
